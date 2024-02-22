@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+
+
     <persistence-unit name="fiap" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL"/>
+            <property name="jakarta.persistence.jdbc.user" value="RM552295"/>
+            <property name="jakarta.persistence.jdbc.password" value="050405"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+
+
+    <persistence-unit name="casa" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3307/produto?createDatabaseIfNotExist=true"/>
@@ -14,5 +32,9 @@
             <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
+
+
+
+
 
 </persistence>
