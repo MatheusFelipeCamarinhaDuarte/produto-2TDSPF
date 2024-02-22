@@ -18,14 +18,14 @@ public class Produto {
     @Column(name = "PRECO")
     private double preco;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(
+            name = "SABOR",
+            referencedColumnName = "ID_SABOR",
+            foreignKey = @ForeignKey(name = "KF_SABOR_PRODUTO")
+    )
+    private Sabor sabor;
 
-    public Produto setId(Long id) {
-        this.id = id;
-        return this;
-    }
 
     public String getNome() {
         return nome;
@@ -40,10 +40,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(Long id, String nome, double preco) {
+    public Produto(Long id, String nome, double preco, Sabor sabor) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
+        this.sabor = sabor;
     }
 
     public double getPreco() {
@@ -55,4 +56,22 @@ public class Produto {
         return this;
     }
 
+    public Sabor getSabor() {
+        return sabor;
+    }
+
+    public void setSabor(Sabor sabor) {
+        this.sabor = sabor;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", sabor=" + sabor +
+                '}';
+    }
 }
+
