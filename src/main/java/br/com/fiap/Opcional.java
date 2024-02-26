@@ -1,5 +1,6 @@
 package br.com.fiap;
 
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,4 +16,49 @@ public class Opcional {
     @Column(name = "PRECO")
     private double preco;
 
+    public Opcional(){
+
+    }
+
+    public Opcional(Long id, String nome, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Opcional setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Opcional setNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public Opcional setPreco(double preco) {
+        this.preco = preco;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Opcional{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                '}';
+    }
 }
